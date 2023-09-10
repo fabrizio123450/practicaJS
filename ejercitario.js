@@ -124,11 +124,9 @@ function esMayaorString(lista){
     console.log("El mayor es " + mayor);
 }
 //Escribe una función que tome un objeto como argumento y devuelva un array con los valores de todas sus propiedades.
-const miObjeto = {
-    nombre: "Juan",
-    edad: 30,
-    ciudad: "Ejemploville"
-};
+function eleObject (objeto){
+    console.log(Object.values(objeto));
+}
 
 
 
@@ -179,26 +177,70 @@ function quickSort(lista) {
 
 
 //Escribe una función que tome dos arrays como argumentos y devuelva un array que contenga los elementos comunes entre ambos.
-
+function dosListas(listaA, listaB){
+    let a = ["asd", "asd"]
+    
+    
+}
 //Escribe una función que tome un array de strings como argumento y devuelva un nuevo array que contenga los strings convertidos a mayúsculas.
-
+function listaMayus(lista){
+    let newArray = [];
+    lista.forEach(element => {
+        newArray.push(element.toUpperCase());
+    });
+    console.log(newArray);
+    return newArray;
+}
 //Escribe una función que tome un array de números como argumento y devuelva un nuevo array que contenga la suma acumulativa de sus elementos.
-
+function sumaAcumulativa(lista){
+    let array = [1,2,3,4,5];
+    let aux = 0;
+    for (let i = 0; i < array.length; i++) {
+        if(i === 0){
+            console.log(lista[i])
+            aux+=lista[i];
+        }else{
+            console.log(aux+lista[i]);
+            aux+=lista[i];
+        }
+    }
+}
 
 
 
 //Bucles
 
 //Escribe un bucle for que imprima en la consola los números del 1 al 10.
+for (let index = 1; index < 11; index++) {
+    console.log(index);
+    
+}
 
 //Escribe un bucle while que imprima en la consola los números del 1 al 5.
+let num = 1;
+while(num <= 5){
+    console.log (num++);  
+}
 
 //Crea un vector con los números del 1 al 5. Escribe un bucle for que imprima en la consola cada uno de los elementos del vector.
-
+let numArray = [1,2,3,4,5];
+numArray.forEach(element => {
+    console.log(element);
+});
 //Crea una función que reciba un número n y devuelva la suma de todos los números del 1 al n. Utiliza un bucle for para calcular la suma y muestra el resultado en la consola.
-
+function sumarN(n){
+    console.log((n*(n+1))/2);
+}
 //Crea una función que reciba un vector y devuelva la suma de todos sus elementos. Utiliza un bucle while para calcular la suma y muestra el resultado en la consola.
-
+function listaSum(lista){
+    let num = 0;
+    let sum = 0;
+    while(lista.length !== num){
+        sum+=lista[num];
+        num++
+    }
+    console.log(sum);
+}
 
 
 
@@ -222,13 +264,18 @@ miDiv.addEventListener("mouseout", function() {
 //Crea una función que cambie el tamaño de fuente de un elemento HTML cuando se presiona una tecla en el teclado. Agrega esta función como un listener de evento para el div del ejercicio anterior.
 const miInput = document.getElementById("miInput");
 let fontSize = 16;
-
-miInput.addEventListener("keydown", function(event) {
+document.addEventListener("keydown", function(event) {
     if (event.key === "a") {
         fontSize += 2;
         miInput.style.fontSize = fontSize + "px";
+        miDiv.style.fontSize = fontSize + "px";
     }
 });
 //Crea una función que cambie el contenido de un elemento HTML cuando se hace doble clic sobre él. Agrega esta función como un listener de evento para el div del ejercicio anterior.
-
+miDiv.addEventListener('dblclick', ()=>{
+    miDiv.style.backgroundColor = 'blue'
+    miDiv.textContent = "CAMBIE CON DOBLE CLICK!!!!!!"
+});
 //Crea una función que cambie la imagen de fondo de un elemento HTML cuando se carga la página. Agrega esta función como un listener de evento para el body del documento.
+const myBody =document.getElementsByTagName('body');
+document.body.style.backgroundImage = "url('./water.jpg')";
