@@ -103,16 +103,13 @@ function esPar(a){
     console.log( a % 2 === 0 ? true : false);
 }
 //Escribe una función que tome un array de números como argumento y devuelva la suma de sus elementos.
-function esMayaorLista(lista){
-    let mayor = lista[0]; 
-
-    for (let i = 1; i < lista.length; i++) {
-        if (lista[i] > mayor) {
-            mayor = lista[i];
-        }
-    }
-
-    console.log("El mayor es " + mayor);
+function sumaLista(lista){
+    let numero = 0; 
+    lista.forEach(element => {
+        numero += element;
+    });
+    
+    console.log("la suma es " + numero);
 }
 //Escribe una función que tome un array de strings como argumento y devuelva la longitud del string más largo.
 function esMayaorString(lista){
@@ -139,8 +136,47 @@ const miObjeto = {
 //Vectores
 
 //Escribe una función que tome un array de números como argumento y devuelva el número más grande.
+function esMayaorLista(lista){
+    let mayor = lista[0]; 
 
+    for (let i = 1; i < lista.length; i++) {
+        if (lista[i] > mayor) {
+            mayor = lista[i];
+        }
+    }
+
+    console.log("El mayor es " + mayor);
+}
 //Escribe una función que tome un array de números como argumento y devuelva un array con los números ordenados de menor a mayor.
+function quickSort(lista) {
+  if (lista.length <= 1) {
+    return lista;
+  }
+
+  const pivot = lista[0]; // pivot
+  const left = [];
+  const right = [];
+
+  
+  for (let i = 1; i < lista.length; i++) {
+    if (lista[i] < pivot) {
+      left.push(lista[i]);
+    } else {
+      right.push(lista[i]);
+    }
+  }
+
+  // Recursion
+  const leftSorted = quickSort(left);
+  const rightSorted = quickSort(right);
+
+  // Combinar los subarreglos ordenados junto con el pivot
+  return leftSorted.concat(pivot, rightSorted);
+  // Ejemplo de uso
+  // console.log(quickSort([4, 10, 3, 5, 1])); Esto imprimirá el arreglo ordenado [1, 3, 4, 5, 10]
+}
+
+
 
 //Escribe una función que tome dos arrays como argumentos y devuelva un array que contenga los elementos comunes entre ambos.
 
@@ -170,11 +206,29 @@ const miObjeto = {
 //DOM y eventos
 
 //Crea un archivo HTML con un botón y un div vacío. Usa JavaScript para agregar un mensaje al div cuando se hace clic en el botón.
+const miDiv =document.getElementById('my-div');
+document.getElementById('boton-click').addEventListener('click', () => {
+    miDiv.textContent = "se hizo CLICK!!!";
+})
 
 //Crea una función que cambie el color de fondo de un elemento HTML a rojo cuando el mouse se mueve sobre él. Agrega esta función como un listener de evento para el div del ejercicio anterior.
-
+miDiv.addEventListener("mouseover", function(){
+    miDiv.style.backgroundColor = "red";
+});
+miDiv.addEventListener("mouseout", function() {
+    // Restaurar el color de fondo original 
+    miDiv.style.backgroundColor = "white";
+});
 //Crea una función que cambie el tamaño de fuente de un elemento HTML cuando se presiona una tecla en el teclado. Agrega esta función como un listener de evento para el div del ejercicio anterior.
+const miInput = document.getElementById("miInput");
+let fontSize = 16;
 
+miInput.addEventListener("keydown", function(event) {
+    if (event.key === "a") {
+        fontSize += 2;
+        miInput.style.fontSize = fontSize + "px";
+    }
+});
 //Crea una función que cambie el contenido de un elemento HTML cuando se hace doble clic sobre él. Agrega esta función como un listener de evento para el div del ejercicio anterior.
 
 //Crea una función que cambie la imagen de fondo de un elemento HTML cuando se carga la página. Agrega esta función como un listener de evento para el body del documento.
