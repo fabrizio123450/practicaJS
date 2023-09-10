@@ -277,5 +277,7 @@ miDiv.addEventListener('dblclick', ()=>{
     miDiv.textContent = "CAMBIE CON DOBLE CLICK!!!!!!"
 });
 //Crea una función que cambie la imagen de fondo de un elemento HTML cuando se carga la página. Agrega esta función como un listener de evento para el body del documento.
-const myBody =document.getElementsByTagName('body');
-document.body.style.backgroundImage = "url('./water.jpg')";
+document.body.addEventListener('loadstart', ()=>{
+    document.body.style.backgroundImage = "url('./water.jpg')";
+})
+//document.body.style.backgroundImage = "url('./water.jpg')";
