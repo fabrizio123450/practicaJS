@@ -178,8 +178,9 @@ function quickSort(lista) {
 
 //Escribe una función que tome dos arrays como argumentos y devuelva un array que contenga los elementos comunes entre ambos.
 function dosListas(listaA, listaB){
-    let a = ["asd", "asd"]
-    
+    // Filtrar elementos comunes usando el método filter
+    const elementosComunes = listaA.filter(elemento => listaB.includes(elemento));
+    return elementosComunes;
     
 }
 //Escribe una función que tome un array de strings como argumento y devuelva un nuevo array que contenga los strings convertidos a mayúsculas.
@@ -265,11 +266,10 @@ miDiv.addEventListener("mouseout", function() {
 const miInput = document.getElementById("miInput");
 let fontSize = 16;
 document.addEventListener("keydown", function(event) {
-    if (event.key === "a") {
         fontSize += 2;
         miInput.style.fontSize = fontSize + "px";
         miDiv.style.fontSize = fontSize + "px";
-    }
+    
 });
 //Crea una función que cambie el contenido de un elemento HTML cuando se hace doble clic sobre él. Agrega esta función como un listener de evento para el div del ejercicio anterior.
 miDiv.addEventListener('dblclick', ()=>{
@@ -280,4 +280,4 @@ miDiv.addEventListener('dblclick', ()=>{
 document.body.addEventListener('loadstart', ()=>{
     document.body.style.backgroundImage = "url('./water.jpg')";
 })
-//document.body.style.backgroundImage = "url('./water.jpg')";
+document.body.style.backgroundImage = "url('./water.jpg')";
